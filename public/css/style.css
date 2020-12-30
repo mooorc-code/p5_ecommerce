@@ -1,0 +1,296 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+li, a, button {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.header, footer {
+    background: #355C7D;
+    /*background: -webkit-linear-gradient(to right, #C06C84, #6C5B7B, #355C7D);*/
+    /*background: linear-gradient(-45deg, #C06C84, #6C5B7B, #355C7D);*/
+    /*background-size: 400% 400%;*/
+    /*animation: gradient 15s ease infinite;*/
+}
+
+/*      header      */
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 15px 10%;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+
+}
+
+.logo {
+    cursor: pointer;
+    margin-right: auto;
+}
+
+.navContent {
+    list-style: none;
+}
+
+.navContent li {
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.navContent li a {
+    transition: all 0.3s ease 0s;
+}
+
+.navContent li a:hover {
+    color: #0088a9;
+}
+
+button {
+    margin-left: 20px;
+    padding: 10px 25px;
+    background-color: rgba(1, 142, 177, 1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    background-color: rgba(0, 136, 169, 0.8);
+}
+
+/*      main    */
+
+main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Oswald-light', sans-serif;
+}
+
+.gridContent {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 50px;
+    max-width: 1300px;
+    height: auto;
+    width: 90%;
+    margin: 30px 0;
+}
+
+/*      overlay     */
+
+.content {
+    position: relative;
+    max-width: 400px;
+    margin: auto;
+    height: 100%;
+    overflow: hidden;
+    align-items: center;
+    text-align: center;
+    background-color: #eeeeee;
+
+    /*color: #232323;*/
+    border-radius: 1.3em;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.content p {
+    margin-top: 40px;
+}
+
+.contentDesc {
+    color: #232323;
+    padding: 1.5em;
+    background-color: #eeeeee;
+}
+
+.content .content-overlay {
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    height: auto;
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+.content:hover .content-overlay {
+    opacity: 1;
+}
+
+.content-image {
+    width: 100%;
+    max-height: 230px;
+    height: 230px;
+    object-fit: cover;
+}
+
+.content-details {
+    position: absolute;
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+.content:hover .content-details {
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+}
+
+.fadeIn-right {
+    left: 80%;
+}
+
+.price {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.btn {
+    border: none;
+    border-radius: 50px;
+    margin: 20px 0;
+    padding: 10px 25px;
+    background-color: rgba(1, 142, 177, 1);
+    cursor: pointer;
+    color: aliceblue;
+}
+
+.price span {
+    font-size: 25px;
+    font-weight: 700;
+    color: aliceblue;
+}
+
+/*      overlay end     */
+
+/*      footer      */
+
+footer {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 10%;
+}
+
+.socialBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.socialBar {
+    list-style: none;
+}
+
+.socialBar li {
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.socialBar li a {
+    transition: all 0.3s ease 0s;
+}
+
+.socialBar li a:hover {
+    color: #0088a9;
+}
+
+
+.secondBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.mention a:hover {
+    color: #0088a9;
+}
+
+/*  Hamburger   */
+
+
+/*  Hamburger end   */
+
+
+/*      product     */
+.main {
+    padding: 60px 20%;
+}
+
+.block-detail {
+    border: 3px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+
+
+}
+
+.block-img {
+    border: 1px solid darkred;
+
+    padding: 10%;
+}
+
+.block-desc {
+    border: 1px solid darkblue;
+    padding: 10%;
+}
+
+#block-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+
+}
+
+.content__prod{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

@@ -1,0 +1,33 @@
+/*      header      */
+.header {
+    display: flex;
+    align-items: center;
+    padding: 15px 10%;
+}
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+
+}
+
+/*      main    */
+
+main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 60px 10%;
+    font-family: 'Oswald-light', sans-serif;
+}
+
+.gridContent {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-gap: 50px;
+    max-width: 1300px;
+    height: auto;
+    width: 100%;
+    margin: 30px 0;
+}
+

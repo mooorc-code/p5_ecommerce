@@ -25,7 +25,65 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3025ab09-1d45-4f61-a643-63db63795f34" name="Default Changelist" comment="" />
+    <list default="true" id="3025ab09-1d45-4f61-a643-63db63795f34" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/camera.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/furniture.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/teddy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/oak_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/oak_2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/oak_3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/oak_4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/oak_5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/teddy_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/teddy_2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/teddy_3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/teddy_4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/teddy_5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/vcam_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/vcam_2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/vcam_3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/vcam_4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/vcam_5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/Camera.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/Furniture.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/Teddy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/all.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/desktop.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/fonts.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/fonts/Oswald-VariableFont_wght.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/tablet.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/html/panier.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/html/produit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/teddy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/all.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/mentions.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/camera.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/furniture.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/teddy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/all.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/desktop.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/fonts.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/fonts/Oswald-VariableFont_wght.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/tablet.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/panier.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/produit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/teddy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/all.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mentions.html" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,6 +97,7 @@
       <list>
         <option value="CSS File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -51,7 +110,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1kXqi4Rja0bgoH7j6VtNMca0Lqv" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -60,14 +121,22 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="js.introduce.parameter.add.jsdoc" value="true" />
+    <property name="js.last.introduce.type" value="CONST" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/css" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.path.for.package.stylelint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.stylelint" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\p5_ecommerce\css" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -83,6 +152,26 @@
       <workItem from="1607085670037" duration="1112000" />
       <workItem from="1607348443618" duration="36238000" />
       <workItem from="1607389801502" duration="307000" />
+      <workItem from="1607390128690" duration="244000" />
+      <workItem from="1607432242815" duration="1763000" />
+      <workItem from="1607510504531" duration="18668000" />
+      <workItem from="1607617778397" duration="7314000" />
+      <workItem from="1607949976544" duration="894000" />
+      <workItem from="1607950884845" duration="1205000" />
+      <workItem from="1608044185314" duration="2138000" />
+      <workItem from="1608212407297" duration="9896000" />
+      <workItem from="1608459573569" duration="653000" />
+      <workItem from="1608460244724" duration="80000" />
+      <workItem from="1608460340131" duration="177000" />
+      <workItem from="1608460528245" duration="612000" />
+      <workItem from="1608653059889" duration="25000" />
+      <workItem from="1608653173338" duration="7000" />
+      <workItem from="1608653586479" duration="17763000" />
+      <workItem from="1608738364047" duration="4613000" />
+      <workItem from="1608996253710" duration="1191000" />
+      <workItem from="1609166407722" duration="9639000" />
+      <workItem from="1609251992249" duration="17777000" />
+      <workItem from="1609338221501" duration="4640000" />
     </task>
     <servers />
   </component>
@@ -114,26 +203,52 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <ignored-roots>
       <path value="$PROJECT_DIR$/p5" />
     </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
-    <state x="1010" y="446" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606153480743">
+    <state x="3146" y="198" key="#Inspections" timestamp="1608677885738">
+      <screen x="2560" y="0" width="1920" height="1040" />
+    </state>
+    <state x="3146" y="198" key="#Inspections/0.0.2560.1400/2560.0.1920.1040@2560.0.1920.1040" timestamp="1608677885738" />
+    <state x="3112" y="160" key="#Plugins" timestamp="1608460540343">
+      <screen x="2560" y="0" width="1920" height="1040" />
+    </state>
+    <state x="3112" y="160" key="#Plugins/0.0.2560.1400/2560.0.1920.1040@2560.0.1920.1040" timestamp="1608460540343" />
+    <state x="1010" y="446" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607528527500">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1010" y="446" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1606153480743" />
+    <state x="1010" y="446" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1607528527500" />
+    <state x="3248" y="372" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1608222246340">
+      <screen x="2560" y="0" width="1920" height="1040" />
+    </state>
+    <state x="3248" y="372" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.2560.1400/2560.0.1920.1040@2560.0.1920.1040" timestamp="1608222246340" />
+    <state x="2996" y="85" key="CommitChangelistDialog2" timestamp="1607624765642">
+      <screen x="2560" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2996" y="85" key="CommitChangelistDialog2/0.0.2560.1400/2560.0.1920.1040@2560.0.1920.1040" timestamp="1607624765642" />
+    <state x="3425" y="352" key="FileChooserDialogImpl" timestamp="1607624321240">
+      <screen x="2560" y="0" width="1920" height="1040" />
+    </state>
+    <state x="3425" y="352" key="FileChooserDialogImpl/0.0.2560.1400/2560.0.1920.1040@2560.0.1920.1040" timestamp="1607624321240" />
     <state x="1104" y="619" key="Github.CreateGistDialog" timestamp="1607387331624">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1104" y="619" key="Github.CreateGistDialog/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1607387331624" />
-    <state x="781" y="344" key="SettingsEditor" timestamp="1607389830376">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="3146" y="256" key="SettingsEditor" timestamp="1608653601072">
+      <screen x="2560" y="0" width="1920" height="1040" />
     </state>
     <state x="781" y="344" key="SettingsEditor/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1607389830376" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1607353621964">
+    <state x="3146" y="256" key="SettingsEditor/0.0.2560.1400/2560.0.1920.1040@2560.0.1920.1040" timestamp="1608653601072" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1609174844168">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="498" height="446" key="SwitcherDM/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1607353621964" />
+    <state width="498" height="446" key="SwitcherDM/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1609174844168" />
+    <state x="872" y="432" key="Vcs.Push.Dialog.v2" timestamp="1607390316199">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="872" y="432" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1607390316199" />
   </component>
 </project>
