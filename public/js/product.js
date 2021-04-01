@@ -1,27 +1,33 @@
 function afficheTeddy(teddy) {
 
 
-    let card = `<div class="content">
-            
-                <div class="content-overlay"></div>                
-                <img class="content-image" src="${teddy.imageUrl}" alt="${teddy.name}">
-                <div class="content-details fadeIn-right">
-                    <div class="price">
-                        <span>${teddy.price / 100} €</span>
-                        <a class="btn" id="${teddy._id}" href='html/produit.html?id=${teddy._id}' >Détails</a>
+    let card = `<section class="block-desc">
+                    <div class="img-product">
+                        <img class="img-prod" src="${teddy.imageUrl}" alt="teddy">                    
                     </div>
-                </div>
-            
-            <div class="contentDesc">
-                <h2>${teddy.name}</h2>
-                <p>${teddy.description}</p>                        
-            </div>
-        </div>`;
+                    <div class="desc-product">
+                        <h2>${teddy.name}</h2>
+                        <p>${teddy.price / 100} €</p>
+                        <select name="color" id="options">                       
+                                                       
+                        </select>      
+                        <p>${teddy.description}</p>                                              
+                        <button id="btnStorage" class="btn-add btn-store ">Ajouter au panier</button>         
+                    </div>
+    </section>`;
 
     let cardProd = document.getElementById( "cardProd" );
 
     cardProd.innerHTML = card;
 
+    let options = '';
+
+    for (let i = 0; i < teddy.colors.length; i++) {
+        options += `<option value="${i}">${teddy.colors[i]}</option>`;
+    }
+    let optionsSelector = document.getElementById( "options" );
+
+    optionsSelector.innerHTML = options;
 
 }
 
@@ -32,71 +38,76 @@ const url = new URL( url_path );
 const id = url.searchParams.get( "id" );
 
 const getTeddy = async function () {
-    try {
-        let response = await fetch( 'http://localhost:3000/api/teddies/' + id )
-        if (response.ok) {
-            let data = await response.json();
-            afficheTeddy(data);
-        } else {
-            console.error( 'Retour du serveur : ', response.status )
-        }
-    } catch (e) {
-        console.log( e );
+
+    let response = await fetch( 'http://localhost:3000/api/teddies/' + id )
+    if (response.ok) {
+        let data = await response.json();
+        afficheTeddy( data );
+        afficheColors();
+    } else {
+        console.error( 'Retour du serveur : ', response.status )
     }
+
+
 }
 
 getTeddy();
 
 console.log( id );
 
+function afficheColors() {
+    let btn = document.getElementById( "btnStorage" );
+    console.log( btn );
+    btn.addEventListener( 'click', function () {
+        console.log( 'item' );
+        ajouter();
 
-// http://localhost:3000/api/teddies/5be9c8541c9d440000665243
-
-// function product() {
-//     document.location = `products.html?id=${id}`;
+    } );
+}
 
 
-// j'appelle l'api sur la route get/id pour avoir les infos
+function ajouter() {
+    let card = localStorage.getItem( 'card' );
 
-//     fetch( 'http://p5-ecommerce-test/public/html/produit.html?' + params.get( 'id' ) )
-//         .then( response => {
-//             console.log( response );
-//             if (response.ok) {
-//                 return response.json();
-//             } else {
-//                 return promise.reject( response.status );
-//             }
-//         } )
+    if (localStorage.getItem( 'card' ) === null) {
+        card = [];
+    } else {
+        card = JSON.parse( card );
+    }
+    console.log( card );
+
+    if (card.some( teddies => teddies._id === id )) {
+        card = card.map( teddy => {
+            if (teddy._id === id) {
+                teddy.qty += 1;
+            }
+            return teddy;
+        } )
+    } else {
+        let article = {
+            "_id": id,
+            "qty": 1,
+        };
+        card.push( article );
+    }
+
+    localStorage.setItem( 'card', JSON.stringify( card ) );
+    //console.log( JSON.parse( localStorage.getItem( 'card' ) ) );
+
+
+}
+
+// if (localStorage.getItem( 'card' ) != null) {
+//     let card = localStorage.getItem( 'card' );
+//     let article = {
+//             "_id": id,
+//             "qty": 1,
+//         };
+//     card.push( article );
+//     localStorage.setItem( card );
+// } else {
+//     localStorage.setItem( 'card', JSON.stringify( card ) );
+//     console.log( JSON.parse( localStorage.getItem( 'card' ) ) );
 // }
-//
-// const url = new URLSearchParams( window.location.search );
 
-// l'api me renvoi les données
-
-// L'initalise mon template
-
-// je l'envoi à mon fichier html pour afficher mes infos
-// function cardProd(procuct) {
-//     let cardProd = `<div class="block-img">
-//         <img class="content-image" src="${teddies.imageUrl}" alt="${teddies[i].name}">
-//     </div>
-//     <div class="block-desc">
-//         <h2>${teddies[i].name}</h2>
-//         <span>${teddies[i].price / 100} €</span>
-//         <p>${teddies[i].description}</p>
-//         <select name="color" id="${product[i].color}">
-//             <option value="">--Please choose an option--</option>
-//             <option value=""></option>
-//         </select>
-//         <select class="content__prod" name="quantité" id="">
-//             <option value="1">--Please choose an option--</option>
-//             <option value="2"></option>
-//         </select>
-//         <span>quantité</span>
-//         <button>bouton add</button>
-//     </div>`;
-//
-//     let productCard = document.getElementById( "productCard" );
-//     productCard.innerHTML += cardProd;
-// }
 

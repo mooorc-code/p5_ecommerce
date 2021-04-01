@@ -2,7 +2,6 @@ function afficheTeddie(teddies) {
     for (let i = 0; i < teddies.length; i++) {
 
         let card = `<div class="content">
-            
                 <div class="content-overlay"></div>                
                 <img class="content-image" src="${teddies[i].imageUrl}" alt="${teddies[i].name}">
                 <div class="content-details fadeIn-right">
@@ -12,34 +11,34 @@ function afficheTeddie(teddies) {
                     </div>
                 </div>
             
-            <div class="contentDesc">
-                <h2>${teddies[i].name}</h2>
-                <p>${teddies[i].description}</p>                        
-            </div>
-        </div>`;
+                <div class="contentDesc">
+                    <h2>${teddies[i].name}</h2>
+                    <p>${teddies[i].description}</p>                        
+                </div>            
+            </div>`;
 
-        let gridCards = document.getElementById("gridCards");
+        let gridCards = document.getElementById( "gridCards" );
 
         gridCards.innerHTML += card;
 
     }
 }
 
+
 const getTeddies = async function () {
     try {
-        let response = await fetch('http://localhost:3000/api/teddies')
+        let response = await fetch( 'http://localhost:3000/api/teddies' )
         if (response.ok) {
             let data = await response.json();
-            afficheTeddie(data);
+            afficheTeddie( data );
         } else {
-            console.error('Retour du serveur : ', response.status)
+            console.error( 'Retour du serveur : ', response.status )
         }
     } catch (e) {
-        console.log(e);
+        console.log( e );
     }
 }
 
 getTeddies();
 
-//hamburger
 

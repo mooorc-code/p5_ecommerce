@@ -1,10 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="../img/favicon.png">
+    <link rel="stylesheet" href="../css/fonts.css" type="text/css">
+    <link rel="stylesheet" href="../css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <link rel="stylesheet" href="../css/tablet.css" media="screen and (min-width: 451px)" type="text/css">
+    <link rel="stylesheet" href="../css/desktop.css" media="screen and (min-width: 769px)" type="text/css">
 
+    <title>Orinoco</title>
+</head>
+
+<body>
+<!--header-->
+<header>
+    <a href="../index.html" class="logo"><h1>Orinoco</h1></a>
+    <nav class="navbar">
+        <div id="fullscreen-menu" class="dnone">
+            <ul class="navContent">
+                <li><a href="../index.html" alt="home"><i class="fas fa-home fa-2x"></i></a></li>
+                <li><a href="../html/panier.html"><i class="fas fa-shopping-cart fa-2x" alt="Panier"></i></a></li>
+
+            </ul>
+        </div>
+
+        <div id="hamburger">
+            <svg id="hamburger-menu" class="ham hamRotate ham8" viewBox="0 0 100 100" width="80"
+                 onclick="this.classList.toggle('active')">
+                <path
+                        class="line top"
+                        d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20"/>
+                <path
+                        class="line middle"
+                        d="m 30,50 h 40"/>
+                <path
+                        class="line bottom"
+                        d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20"/>
+            </svg>
+        </div>
+        <div id="overlay-menu-hamburger" class="dnone">
+            <ul>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="../html/panier.html">Panier</a></li>
+            </ul>
+        </div>
+    </nav>
+
+</header>
+<!--main-->
+<main id="cardBasket">
+    <section class="block-panier">
+        <h2 id="inner-header">Votre panier</h2>
+
+        <table class="tableau-style">
+            <thead>
+            <tr>
+                <th>vignette</th>
+                <th>quantité</th>
+                <th>couleur</th>
+                <th>prix</th>
+            </tr>
+            </thead>
+            <tbody id="ajouterItem">
+
+            </tbody>
+        </table>
+
+
+        <div id="card-total">
+        </div>
+        <button id="afficheFormulaire" onclick="this.classList.toggle('active')">Suivant</button>
+    </section>
+    <section id="formulaire" class="form-none">
+        <form action="" method="get">
+            <button id="closeformulaire" onclick="this.classList.toggle('active')"><i class="fas fa-times fa-2x"></i>
+            </button>
+            <div class="page" id="page1">
+                <h2>Informations</h2>
+                <div>
+                    <label for="prenom">Prenom :</label>
+                    <input type="text" placeholder="John" id="prenom" name="prenom">
+                </div>
+                <div>
+                    <label for="nom">Nom :</label>
+                    <input type="text" placeholder="Doe" id="nom" name="nom">
+                </div>
+                <div>
+                    <label for="adresse">Adresse :</label>
+                    <input type="text" placeholder="2 rue de la soif" id="adresse" name="adresse">
+                </div>
+                <div>
+                    <label for="ville">Ville :</label>
+                    <input type="text" placeholder="Cognac" id="ville" name="ville">
+                </div>
+                <div>
+                    <label for="code">Code postal :</label>
+                    <input type="text" placeholder="16100" id="code" name="code postal">
+                </div>
+                <div>
+                    <label for="email">Adresse email :</label>
+                    <input type="text" placeholder="johndoe@example.com" id="email" name="adresse email">
+                </div>
+                <button type="button" id="envoyer">Confirmer</button>
+            </div>
+        </form>
+    </section>
+</main>
+<!--footer-->
+<footer>
+    <section>
+        <ul class="socialBar">
+            <li><a href="#" target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-instagram-square fa-2x"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-pinterest-square fa-2x"></i></a></li>
+        </ul>
+    </section>
+</footer>
+<script src="../js/all.min.js"></script>
+<script src="../js/panier.js" defer></script>
+<script src="../js/hamburger.js"></script>
 </body>
 </html>
