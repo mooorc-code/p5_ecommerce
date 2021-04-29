@@ -1,10 +1,6 @@
 function afficheTeddy(teddy) {
-
-
-    let card = `<section class="block-desc">
-                    <div class="img-product">
-                        <img class="img-prod" src="${teddy.imageUrl}" alt="teddy">                    
-                    </div>
+    let card = `<section class="block-card">
+                    <img class="img-teddy" src="${teddy.imageUrl}" alt="teddy">
                     <div class="desc-product">
                         <h2>${teddy.name}</h2>
                         <p>${teddy.price / 100} €</p>
@@ -31,7 +27,6 @@ function afficheTeddy(teddy) {
 
 }
 
-
 // je récupère l'id qui est dans mon url
 const url_path = window.location.href;
 const url = new URL( url_path );
@@ -47,8 +42,6 @@ const getTeddy = async function () {
     } else {
         console.error( 'Retour du serveur : ', response.status )
     }
-
-
 }
 
 getTeddy();
@@ -62,9 +55,12 @@ function afficheColors() {
         console.log( 'item' );
         ajouter();
 
+        if (window.confirm( "L'article a été ajouté au panier" )) {
+            window.open( "panier.html", "Nouvelle fenêtre");
+        }
+
     } );
 }
-
 
 function ajouter() {
     let card = localStorage.getItem( 'card' );
@@ -92,22 +88,4 @@ function ajouter() {
     }
 
     localStorage.setItem( 'card', JSON.stringify( card ) );
-    //console.log( JSON.parse( localStorage.getItem( 'card' ) ) );
-
-
 }
-
-// if (localStorage.getItem( 'card' ) != null) {
-//     let card = localStorage.getItem( 'card' );
-//     let article = {
-//             "_id": id,
-//             "qty": 1,
-//         };
-//     card.push( article );
-//     localStorage.setItem( card );
-// } else {
-//     localStorage.setItem( 'card', JSON.stringify( card ) );
-//     console.log( JSON.parse( localStorage.getItem( 'card' ) ) );
-// }
-
-

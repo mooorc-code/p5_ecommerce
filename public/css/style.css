@@ -1,6 +1,8 @@
 body {
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 li, a, button {
@@ -11,6 +13,11 @@ li, a, button {
     text-decoration: none;
 }
 
+footer {
+    flex-shrink: 0;
+    width: 100%;
+}
+
 header, footer {
     background-color: #252525;
 }
@@ -19,13 +26,7 @@ header, footer {
 header {
     display: flex;
     align-items: center;
-    padding: 15px;
-}
-
-.navbar {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
+    padding: 30px;
 }
 
 .logo {
@@ -49,7 +50,6 @@ header {
     color: #0088a9;
 }
 
-
 button {
     padding: 10px 25px;
     background-color: rgba(1, 142, 177, 1);
@@ -68,19 +68,15 @@ button:hover {
 /*********************      main    ********************************/
 
 main {
-    display: flex;
-    justify-content: space-around;
     font-family: 'Oswald-light', sans-serif;
+    flex: 1 0 auto;
 }
 
-.gridContent {
+.grid {
     display: grid;
     grid-template-columns: 1fr;
-    grid-gap: 50px;
-    max-width: 1300px;
-    height: auto;
-    width: 90%;
-    margin: 30px 0;
+    grid-gap: 51px;
+    margin: 41px;
 }
 
 /*********************      overlay     ****************************/
@@ -185,13 +181,6 @@ main {
 /*********************      overlay end     ****************************/
 
 /*********************      footer      ********************************/
-
-footer {
-    display: flex;
-    flex-direction: column;
-    padding: 15px 10%;
-}
-
 .socialBar {
     display: flex;
     justify-content: center;
@@ -204,24 +193,11 @@ footer {
 }
 
 .socialBar li {
-    display: inline-block;
     padding: 0 20px;
-}
-
-.socialBar li a {
-    transition: all 0.3s ease 0s;
 }
 
 .socialBar li a:hover {
     color: #0088a9;
-}
-
-
-.secondBar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 15px;
 }
 
 /*********************      footer end      ********************************/
@@ -298,23 +274,14 @@ footer {
     padding: 60px 20%;
 }
 
-.block-detail {
-    border: 3px solid black;
-    justify-content: center;
-    width: 100%;
-}
-
-
-.block-desc {
+.block-card {
     box-shadow: 10px 10px 60px rgba(0, 0, 0, 0.4);
-    display: flex;
-    flex-direction: column;
     padding-bottom: 15px;
     border-radius: 20px;
-
+    margin: 40px;
 }
 
-.img-prod {
+.img-teddy {
     border-radius: 20px 20px 0 0;
     width: 100%;
     max-height: 230px;
@@ -330,20 +297,13 @@ footer {
     margin-top: 10px;
 }
 
-#block-footer {
-    bottom: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-
-}
 
 .dnone {
     display: none;
 }
 
 :root {
-    --height: 130px;
+    --height: 144px;
 }
 
 .header {
@@ -361,6 +321,23 @@ footer {
     width: 100%;
 }
 
+#overlay-menu-hamburger > ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+#overlay-menu-hamburger > ul > li {
+    padding: 15px 0;
+    background-color: #252525;
+    width: 100%;
+}
+
+#overlay-menu-hamburger > ul > li:hover {
+    background-color: #0088a9;
+}
+
 /*********************      product end    *************************/
 
 
@@ -368,14 +345,14 @@ footer {
 
 .tableau-style {
     border-collapse: collapse;
-    min-width: 400px;
     width: 100%;
     box-shadow: 0 5px 50px rgba(0, 0, 0, 0.15);
     border: 1px solid #ddd;
 }
 
 #img-tb {
-    width: 200px;
+    width: 400px;
+    display: inline-block;
 }
 
 thead tr {
@@ -384,12 +361,17 @@ thead tr {
     text-align: center;
 }
 
+tr {
+    display: flex;
+    flex-direction: column;
+}
+
 th, td {
     padding: 15px 20px;
     text-align: center;
 }
 
-tbody tr, td, th {
+tbody tr, th {
     border: 1px solid #ddd;
 }
 
@@ -401,6 +383,10 @@ tbody tr:nth-child(even) {
     border-bottom: 1px solid #252525;
 }
 
+.block-panier {
+    margin: 15px;
+    padding: 5%;
+}
 
 #card-total {
     display: flex;
@@ -409,4 +395,187 @@ tbody tr:nth-child(even) {
     padding-right: 5px;
     font-weight: 800;
     font-size: 1.5rem;
+}
+
+#inner-header {
+    text-align: center;
+}
+
+/*  FORMULAIRE PANIER */
+
+#formulaire {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#formulaire > i {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+
+
+}
+
+#formulaire form {
+    border: 1px solid lightblue;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: white;
+
+}
+
+input {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid lightblue;
+    border-radius: 5px;
+}
+
+.form-title {
+    grid-area: form-title;
+    text-align: center;
+}
+
+/*firstname*/
+.form-label-firstname {
+    grid-area: form-label-firstname;
+}
+
+.form-input-firstname {
+    grid-area: form-input-firstname;
+}
+
+#form-msgerror-firstname {
+    grid-area: form-msgerror-firstname;
+}
+
+/*lastname*/
+.form-label-lastname {
+    grid-area: form-label-lastname;
+}
+
+.form-input-lastname {
+    grid-area: form-input-lastname;
+}
+
+#form-msgerror-lastname {
+    grid-area: form-msgerror-lastname;
+}
+
+/*address*/
+.form-label-address {
+    grid-area: form-label-address;
+}
+
+.form-input-address {
+    grid-area: form-input-address;
+}
+
+#form-msgerror-address {
+    grid-area: form-msgerror-address;
+}
+
+/*city*/
+.form-label-city {
+    grid-area: form-label-city;
+}
+
+.form-input-city {
+    grid-area: form-input-city;
+}
+
+#form-msgerror-city {
+    grid-area: form-msgerror-city;
+}
+
+/*email*/
+.form-label-email {
+    grid-area: form-label-email;
+}
+
+.form-input-email {
+    grid-area: form-input-email;
+}
+
+#form-msgerror-email {
+    grid-area: form-msgerror-email;
+}
+
+/*button*/
+.form-button {
+    grid-area: form-button;
+}
+
+#form {
+    display: grid;
+    grid-template-areas:
+        "form-title form-title"
+        "form-label-firstname form-input-firstname"
+        ". form-msgerror-firstname"
+        "form-label-lastname form-input-lastname"
+        ". form-msgerror-lastname"
+        "form-label-address form-input-address"
+        ". form-msgerror-address"
+        "form-label-city form-input-city"
+        ". form-msgerror-city"
+        "form-label-email form-input-email"
+        ". form-msgerror-email"
+        "form-button form-button";
+    grid-gap: 10px;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto repeat(5, 50px 20px) auto;
+}
+
+#form-msgerror-firstname,
+#form-msgerror-lastname,
+#form-msgerror-address,
+#form-msgerror-city,
+#form-msgerror-email {
+    display: none;
+    color: red;
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+#form label {
+    line-height: 50px;
+    text-align: right;
+}
+
+
+.form-none {
+    display: none;
+
+}
+
+#envoyer {
+    max-width: 400px;
+    margin: 25px auto;
+}
+
+/*  Order   */
+#block-order {
+    max-width: 400px;
+    text-align: center;
+    border-radius: 1.3em;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2);
+    margin: 30px;
+    padding: 5px;
+}
+
+#block-order > p {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#block-order > a > button {
+    margin-top: 25px;
+    margin-bottom: 25px;
 }

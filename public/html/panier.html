@@ -6,6 +6,7 @@
     <link rel="shortcut icon" type="image/png" href="../img/favicon.png">
     <link rel="stylesheet" href="../css/fonts.css" type="text/css">
     <link rel="stylesheet" href="../css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="../css/normalizer.css">
     <link rel="stylesheet" href="../css/style.css" type="text/css">
     <link rel="stylesheet" href="../css/tablet.css" media="screen and (min-width: 451px)" type="text/css">
     <link rel="stylesheet" href="../css/desktop.css" media="screen and (min-width: 769px)" type="text/css">
@@ -59,7 +60,6 @@
             <tr>
                 <th>vignette</th>
                 <th>quantité</th>
-                <th>couleur</th>
                 <th>prix</th>
             </tr>
             </thead>
@@ -71,53 +71,42 @@
 
         <div id="card-total">
         </div>
-        <button id="afficheFormulaire" onclick="this.classList.toggle('active')">Suivant</button>
+        <button type="button" id="afficheFormulaire">Suivant</button>
     </section>
     <section id="formulaire" class="form-none">
-        <form action="" method="get">
-            <button id="closeformulaire" onclick="this.classList.toggle('active')"><i class="fas fa-times fa-2x"></i>
+        <form action="" method="post" name="formulaire">
+            <button type="button" id="closeformulaire"><i class="fas fa-times fa-2x"></i>
             </button>
-            <div class="page" id="page1">
-                <h2>Informations</h2>
-                <div>
-                    <label for="prenom">Prenom :</label>
-                    <input type="text" placeholder="John" id="prenom" name="prenom">
-                </div>
-                <div>
-                    <label for="nom">Nom :</label>
-                    <input type="text" placeholder="Doe" id="nom" name="nom">
-                </div>
-                <div>
-                    <label for="adresse">Adresse :</label>
-                    <input type="text" placeholder="2 rue de la soif" id="adresse" name="adresse">
-                </div>
-                <div>
-                    <label for="ville">Ville :</label>
-                    <input type="text" placeholder="Cognac" id="ville" name="ville">
-                </div>
-                <div>
-                    <label for="code">Code postal :</label>
-                    <input type="text" placeholder="16100" id="code" name="code postal">
-                </div>
-                <div>
-                    <label for="email">Adresse email :</label>
-                    <input type="text" placeholder="johndoe@example.com" id="email" name="adresse email">
-                </div>
-                <button type="button" id="envoyer">Confirmer</button>
+            <div class="page" id="form">
+                <h2 class="form-title">Informations</h2>
+                <label class="form-label-firstname" for="prenom">Prenom :</label>
+                <input class="form-input-firstname" type="text" placeholder="John" id="prenom" name="prenom">
+                <p id="form-msgerror-firstname">* champ obligatoire</p>
+                <label class="form-label-lastname" for="nom">Nom :</label>
+                <input class="form-input-lastname" type="text" placeholder="Doe" id="nom" name="nom">
+                <p id="form-msgerror-lastname">* champ obligatoire</p>
+                <label class="form-label-address" for="adresse">Adresse :</label>
+                <input class="form-input-address" type="text" placeholder="2 rue de la soif" id="adresse" name="adresse">
+                <p id="form-msgerror-address">* champ obligatoire</p>
+                <label class="form-label-city" for="ville">Ville :</label>
+                <input class="form-input-city" type="text" placeholder="Cognac" id="ville" name="ville">
+                <p id="form-msgerror-city">* champ obligatoire</p>
+                <label class="form-label-email" for="email">email :</label>
+                <input class="form-input-email" type="email" placeholder="johndoe@example.com" id="email" name="email">
+                <p id="form-msgerror-email">* champ obligatoire</p>
+                <button class="form-button" type="button" id="envoyer">Confirmer</button>
             </div>
         </form>
     </section>
 </main>
 <!--footer-->
 <footer>
-    <section>
-        <ul class="socialBar">
-            <li><a href="#" target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a></li>
-            <li><a href="#" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a></li>
-            <li><a href="#" target="_blank"><i class="fab fa-instagram-square fa-2x"></i></a></li>
-            <li><a href="#" target="_blank"><i class="fab fa-pinterest-square fa-2x"></i></a></li>
-        </ul>
-    </section>
+    <ul class="socialBar">
+        <li><a href="#" target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a></li>
+        <li><a href="#" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a></li>
+        <li><a href="#" target="_blank"><i class="fab fa-instagram-square fa-2x"></i></a></li>
+        <li><a href="#" target="_blank"><i class="fab fa-pinterest-square fa-2x"></i></a></li>
+    </ul>
 </footer>
 <script src="../js/all.min.js"></script>
 <script src="../js/panier.js" defer></script>
