@@ -1,5 +1,4 @@
 let cardBasket = document.getElementById( "cardBasket" );
-
 let card = localStorage.getItem( 'card' );
 card = JSON.parse( card );
 let ajouterItem = document.getElementById( "ajouterItem" );
@@ -12,8 +11,6 @@ card.forEach( item => {
         let url = 'http://localhost:3000/api/teddies/' + item._id;
         const response = await fetch( url );
         const data = await response.json();
-        console.log( data );
-
 
         let resultat = item.qty * (data.price) / 100;
 
@@ -36,7 +33,6 @@ card.forEach( item => {
 
 } );
 
-//bouton formulaire
 let bouton = document.getElementById( 'afficheFormulaire' );
 let formulaire = document.getElementById( 'formulaire' );
 let close = document.getElementById( 'closeformulaire' );
@@ -49,101 +45,48 @@ close.addEventListener( 'click', function () {
     formulaire.classList.toggle( 'form-none' )
 } );
 
-let valider = document.getElementById( 'envoyer' )
-valider.addEventListener( 'click', function () {
-    let error = 0;
+let btnSubmit = document.getElementById( 'envoyer' );
 
-    let msgerrorFirstname = document.getElementById( 'form-msgerror-firstname' );
-    let firstname = document.getElementById( 'prenom' ).value;
-    if (!firstname) {
-        msgerrorFirstname.style.display = 'block';
-        console.log( 'erreur firstname' );
-        error++;
-    } else {
-        console.log( 'firstname ok' );
-        msgerrorFirstname.style.display = 'none';
+btnSubmit.addEventListener( 'click', () => {
+
+    let errorValidate = 0;
+    if (!validateFirstname()) {
+        errorValidate++;
     }
-
-    let msgerrorLastname = document.getElementById( 'form-msgerror-lastname' );
-    let lastname = document.getElementById( 'nom' ).value;
-    if (!lastname) {
-        msgerrorLastname.style.display = 'block';
-        console.log( 'erreur lastname' );
-        error++;
-    } else {
-        console.log( 'lastname ok' );
-        msgerrorLastname.style.display = 'none';
+    if (!validateLastname()) {
+        errorValidate++;
     }
-
-    let msgerrorAddress = document.getElementById( 'form-msgerror-address' );
-    let address = document.getElementById( 'adresse' ).value;
-    if (!address) {
-        msgerrorAddress.style.display = 'block';
-        console.log( 'erreur address' );
-        error++;
-    } else {
-        console.log( 'address ok' );
-        msgerrorAddress.style.display = 'none';
+    if (!validateAddress()) {
+        errorValidate++;
     }
-
-    let msgerrorCity = document.getElementById( 'form-msgerror-city' );
-    let city = document.getElementById( 'ville' ).value;
-    if (!city) {
-        msgerrorCity.style.display = 'block';
-        console.log( 'erreur city' );
-        error++;
-    } else {
-        console.log( 'city ok' );
-        msgerrorCity.style.display = 'none';
+    if (!validateCity()) {
+        errorValidate++;
     }
-
-    let msgerrorEmail = document.getElementById( 'form-msgerror-email' );
-    let email = document.getElementById( 'email' ).value;
-    if (!email) {
-        msgerrorEmail.style.display = 'block';
-        console.log( 'erreur email' );
-        error++;
-    } else {
-        console.log( 'email ok' );
-        msgerrorEmail.style.display = 'none';
+    if (!validateEmail()) {
+        errorValidate++;
     }
-
-    if (error === 0) {
-
-
+    if (errorValidate === 0) {
         let products = [];
 
         for (let i = 0; i < card.length; i++) {
             products.push( card[i]._id );
         }
 
-        console.log( products );
-
-        //recupérer le formulaire
         let contact = {
-            "firstName": firstname,
-            "lastName": lastname,
-            "address": address,
-            "city": city,
-            "email": email,
+            "firstName": document.getElementById( 'prenom' ).value,
+            "lastName": document.getElementById( 'nom' ).value,
+            "address": document.getElementById( 'adresse' ).value,
+            "city": document.getElementById( 'ville' ).value,
+            "email": document.getElementById( 'email' ).value,
         };
-        console.log( 'contact' );
 
-
-        // creer un objet pour la requete post
         let obj = {
             'contact': contact,
             'products': products,
         };
-        console.log( obj );
-
-
-        // créer l'envoi
-
 
         const postrequest = async function () {
             try {
-
                 let response = await fetch( 'http://localhost:3000/api/teddies/order', {
                     method: "POST",
                     headers: {
@@ -153,21 +96,13 @@ valider.addEventListener( 'click', function () {
                     body: JSON.stringify( obj ),
                 } );
 
-                console.log( response );
-
                 if (response.ok) {
                     let data = await response.json();
-                    console.log( "info récupérées :" );
-                    console.log( data );
-
 
                     localStorage.removeItem( 'card' );
-                    // recuperer total price
                     let totalPrice = 0;
-                    // clear total price
 
                     window.location.href = 'http://p5-ecommerce-test/public/html/order.html?orderId=' + data.orderId + '&price=' + totalLine;
-
                 } else {
                     console.error( "reponse du serveur :", response.status );
                 }
@@ -177,4 +112,138 @@ valider.addEventListener( 'click', function () {
         };
         postrequest()
     }
+
 } );
+
+function isGranted(value, number,) {
+    if (value.length > number) {
+        return true;
+    }
+    return false;
+}
+
+function validateFirstname() {
+    let errors = 0;
+    let firstnameFormValue = document.getElementById( 'prenom' ).value;
+    let firstnameFormError = document.getElementById( 'form-msgerror-firstname' );
+
+    const firstnameRegExp = /^[A-Za-z]+$/;
+    if (!isGranted( firstnameFormValue, 3 )) {
+        firstnameFormError.innerHTML = '* le prénom doit comporter plus de 3 caractères';
+        firstnameFormError.style.display = 'block';
+        errors++;
+    } else if (!firstnameRegExp.test( firstnameFormValue )) {
+        firstnameFormError.innerHTML = '* le prénom doit comporter que des lettres';
+        firstnameFormError.style.display = 'block';
+        errors++;
+    } else {
+        firstnameFormError.innerHTML = '';
+        firstnameFormError.style.display = 'none';
+    }
+    if (errors === 0) {
+        return true;
+    }
+    return false;
+}
+
+function validateLastname() {
+    let errors = 0;
+
+    let lastnameFormValue = document.getElementById( 'nom' ).value;
+    let lastnameFormError = document.getElementById( 'form-msgerror-lastname' );
+    const lastnameRegExp = /^[a-z]+$/;
+
+    if (!isGranted( lastnameFormValue, 3 )) {
+        lastnameFormError.innerHTML = '* le nom doit comporter plus de 3 caractères';
+        lastnameFormError.style.display = 'block';
+        errors++;
+    } else if (!lastnameRegExp.test( lastnameFormValue )) {
+        lastnameFormError.innerHTML = '* le nom doit comporter que des lettres';
+        lastnameFormError.style.display = 'block';
+        errors++;
+    } else {
+        lastnameFormError.innerHTML = '';
+        lastnameFormError.style.display = 'none';
+    }
+    if (errors === 0) {
+        return true;
+    }
+    return false;
+}
+
+function validateAddress() {
+    let errors = 0;
+
+    let addressFormValue = document.getElementById( 'adresse' ).value;
+    let addressFormError = document.getElementById( 'form-msgerror-address' );
+    const addressRegExp = /^[0-9a-z\ ]+$/;
+
+    if (!isGranted( addressFormValue, 3 )) {
+        addressFormError.innerHTML = "* l'adresse doit comporter plus de 3 caractères";
+        addressFormError.style.display = 'block';
+        errors++;
+    } else if (!addressRegExp.test( addressFormValue )) {
+        addressFormError.innerHTML = "* l'adresse n'est pas valide";
+        addressFormError.style.display = 'block';
+        errors++;
+    } else {
+        addressFormError.innerHTML = '';
+        addressFormError.style.display = 'none';
+    }
+    if (errors === 0) {
+        return true;
+    }
+    return false;
+}
+
+function validateCity() {
+    let errors = 0;
+
+    let cityFormValue = document.getElementById( 'ville' ).value;
+    let cityFormError = document.getElementById( 'form-msgerror-city' );
+    const cityRegExp = /^[a-z]+$/;
+
+
+    if (!isGranted( cityFormValue, 3 )) {
+        cityFormError.innerHTML = '* le nom de la ville doit comporter plus de 3 caractères';
+        cityFormError.style.display = 'block';
+        errors++;
+    } else if (!cityRegExp.test( cityFormValue )) {
+        cityFormError.innerHTML = '* le nom de la ville doit comporter que des lettres';
+        cityFormError.style.display = 'block';
+        errors++;
+    } else {
+        cityFormError.innerHTML = '';
+        cityFormError.style.display = 'none';
+    }
+    if (errors === 0) {
+        return true;
+    }
+    return false;
+}
+
+function validateEmail() {
+    let errors = 0;
+
+    let emailFormValue = document.getElementById( 'email' ).value;
+    let emailFormError = document.getElementById( 'form-msgerror-email' );
+    const emailRegExp = /^[0-9a-z]+@[a-z]+\.[a-z]{2,}$/;
+
+    if (!isGranted( emailFormValue, 6 )) {
+        emailFormError.innerHTML = "* l'adresse email doit comporter plus de 6 caractères";
+        emailFormError.style.display = 'block';
+        errors++;
+    } else if (!emailRegExp.test( emailFormValue )) {
+        emailFormError.innerHTML = "* l'adresse email n'est pas valide";
+        emailFormError.style.display = 'block';
+        errors++;
+    } else {
+        emailFormError.innerHTML = '';
+        emailFormError.style.display = 'none';
+    }
+    if (errors === 0) {
+        return true;
+    }
+    return false;
+}
+
