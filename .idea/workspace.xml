@@ -25,16 +25,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3025ab09-1d45-4f61-a643-63db63795f34" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/all.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/all.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/html/panier.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/html/panier.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/all.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/all.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/panier.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/panier.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/product.js" afterDir="false" />
-    </list>
+    <list default="true" id="3025ab09-1d45-4f61-a643-63db63795f34" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -221,7 +212,7 @@
       <workItem from="1622402163190" duration="680000" />
       <workItem from="1622639935880" duration="597000" />
       <workItem from="1622719620478" duration="12514000" />
-      <workItem from="1623069573362" duration="8089000" />
+      <workItem from="1623069573362" duration="8131000" />
     </task>
     <servers />
   </component>
