@@ -13,6 +13,7 @@
     padding-bottom: 0;
 
 }
+
 .block-card {
     max-width: 70%;
     min-width: 45%;
@@ -26,10 +27,12 @@
     height: 280px;
     object-fit: cover;
 }
-.img-teddy{
+
+.img-teddy {
     max-height: 100%;
     height: 100%;
 }
+
 .img-teddy {
     object-fit: cover;
     border-radius: 20px 20px 0 0;
@@ -37,6 +40,7 @@
     /*max-height: 360px;*/
     /*height: 360px;*/
 }
+
 .desc-product {
     line-height: 2.5;
 }
@@ -57,15 +61,18 @@
     display: block;
 }
 
-tr{
+tr {
     display: table-row;
 }
-td{
+
+td {
     border: 1px solid #ddd;
+}  {
+    flex-direction: row;
 }
 
 /*  FORMULAIRE PANIER */
-#cardBasket{
+#cardBasket {
     margin: 40px;
 }
 
@@ -116,6 +123,6 @@ input {
 }
 
 /*  order   */
-#block-order{
+#block-order {
     margin: 30px auto;
 }

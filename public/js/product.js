@@ -33,7 +33,6 @@ const getTeddy = async function () {
 
     let response = await fetch( 'http://localhost:3000/api/teddies/' + id )
     if (response.ok) {
-
         let data = await response.json();
         teddyProd( data );
         storageProd();
@@ -68,7 +67,7 @@ function storageProd() {
             };
             card.push( article );
         }
-
         localStorage.setItem( 'card', JSON.stringify( card ) );
+        window.location.href = 'panier.html'
     } );
 }

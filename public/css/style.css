@@ -307,7 +307,6 @@ main {
 }
 
 
-
 .header {
     position: relative;
     height: calc(var(--height) - 30px);
@@ -389,7 +388,10 @@ tbody tr:nth-child(even) {
     margin: 15px;
     padding: 5%;
 }
-
+#btnSppr{
+    background-color: inherit;
+    color: #252525;
+}
 #card-total {
     display: flex;
     justify-content: flex-end;
