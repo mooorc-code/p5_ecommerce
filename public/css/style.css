@@ -405,6 +405,10 @@ tbody tr:nth-child(even) {
     text-align: center;
 }
 
+.titlepanier{
+    text-align: center;
+}
+
 /*  FORMULAIRE PANIER */
 
 #formulaire {

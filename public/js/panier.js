@@ -1,4 +1,6 @@
 const cardBasket = document.getElementById( "cardBasket" );
+
+
 let card = localStorage.getItem( 'card' );
 card = JSON.parse( card );
 const ajouterItem = document.getElementById( "ajouterItem" );
@@ -32,89 +34,94 @@ if (card !== null) {
         getTeddy();
 
     } );
+    createForm();
+} else {
+    cardBasket.innerHTML = `<h1 class="titlepanier">Votre panier est vide</h1>`;
 }
 
-const bouton = document.getElementById( 'afficheFormulaire' );
-const formulaire = document.getElementById( 'formulaire' );
-const close = document.getElementById( 'closeformulaire' );
+function createForm() {
+    const bouton = document.getElementById( 'afficheFormulaire' );
+    const formulaire = document.getElementById( 'formulaire' );
+    const close = document.getElementById( 'closeformulaire' );
 
-bouton.addEventListener( 'click', function () {
-    formulaire.classList.toggle( 'form-none' )
-} )
+    bouton.addEventListener( 'click', function () {
+        formulaire.classList.toggle( 'form-none' )
+    } )
 
-close.addEventListener( 'click', function () {
-    formulaire.classList.toggle( 'form-none' )
-} );
+    close.addEventListener( 'click', function () {
+        formulaire.classList.toggle( 'form-none' )
+    } );
 
-const btnSubmit = document.getElementById( 'envoyer' );
+    const btnSubmit = document.getElementById( 'envoyer' );
 
-btnSubmit.addEventListener( 'click', () => {
+    btnSubmit.addEventListener( 'click', () => {
 
-    let errorValidate = 0;
-    if (!validateFirstname()) {
-        errorValidate++;
-    }
-    if (!validateLastname()) {
-        errorValidate++;
-    }
-    if (!validateAddress()) {
-        errorValidate++;
-    }
-    if (!validateCity()) {
-        errorValidate++;
-    }
-    if (!validateEmail()) {
-        errorValidate++;
-    }
-    if (errorValidate === 0) {
-        let products = [];
+        let errorValidate = 0;
+        if (!validateFirstname()) {
+            errorValidate++;
+        }
+        if (!validateLastname()) {
+            errorValidate++;
+        }
+        if (!validateAddress()) {
+            errorValidate++;
+        }
+        if (!validateCity()) {
+            errorValidate++;
+        }
+        if (!validateEmail()) {
+            errorValidate++;
+        }
+        if (errorValidate === 0) {
+            let products = [];
 
-        for (let i = 0; i < card.length; i++) {
-            products.push( card[i]._id );
+            for (let i = 0; i < card.length; i++) {
+                products.push( card[i]._id );
+            }
+
+            let contact = {
+                "firstName": document.getElementById( 'prenom' ).value,
+                "lastName": document.getElementById( 'nom' ).value,
+                "address": document.getElementById( 'adresse' ).value,
+                "city": document.getElementById( 'ville' ).value,
+                "email": document.getElementById( 'email' ).value,
+            };
+
+            let obj = {
+                'contact': contact,
+                'products': products,
+            };
+
+            const postrequest = async function () {
+                try {
+                    let response = await fetch( 'http://localhost:3000/api/teddies/order', {
+                        method: "POST",
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify( obj ),
+                    } );
+
+                    if (response.ok) {
+                        let data = await response.json();
+
+                        localStorage.removeItem( 'card' );
+                        let totalPrice = 0;
+
+                        window.location.href = 'order.html?orderId=' + data.orderId + '&price=' + totalLine;
+                    } else {
+                        console.error( "reponse du serveur :", response.status );
+                    }
+                } catch (e) {
+                    console.log( e )
+                }
+            };
+            postrequest()
         }
 
-        let contact = {
-            "firstName": document.getElementById( 'prenom' ).value,
-            "lastName": document.getElementById( 'nom' ).value,
-            "address": document.getElementById( 'adresse' ).value,
-            "city": document.getElementById( 'ville' ).value,
-            "email": document.getElementById( 'email' ).value,
-        };
-
-        let obj = {
-            'contact': contact,
-            'products': products,
-        };
-
-        const postrequest = async function () {
-            try {
-                let response = await fetch( 'http://localhost:3000/api/teddies/order', {
-                    method: "POST",
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify( obj ),
-                } );
-
-                if (response.ok) {
-                    let data = await response.json();
-
-                    localStorage.removeItem( 'card' );
-                    let totalPrice = 0;
-
-                    window.location.href = 'order.html?orderId=' + data.orderId + '&price=' + totalLine;
-                } else {
-                    console.error( "reponse du serveur :", response.status );
-                }
-            } catch (e) {
-                console.log( e )
-            }
-        };
-        postrequest()
-    }
-
-} );
+    } );
+}
 
 function isGranted(value, number,) {
     if (value.length > number) {
@@ -152,7 +159,7 @@ function validateLastname() {
 
     let lastnameFormValue = document.getElementById( 'nom' ).value;
     let lastnameFormError = document.getElementById( 'form-msgerror-lastname' );
-    const lastnameRegExp = /^[a-z]+$/;
+    const lastnameRegExp = /^[A-Za-z]+$/;
 
     if (!isGranted( lastnameFormValue, 3 )) {
         lastnameFormError.innerHTML = '* le nom doit comporter plus de 3 caractères';
@@ -177,7 +184,7 @@ function validateAddress() {
 
     let addressFormValue = document.getElementById( 'adresse' ).value;
     let addressFormError = document.getElementById( 'form-msgerror-address' );
-    const addressRegExp = /^[0-9a-z\ ]+$/;
+    const addressRegExp = /^[0-9-A-Za-z\ ]+$/;
 
     if (!isGranted( addressFormValue, 3 )) {
         addressFormError.innerHTML = "* l'adresse doit comporter plus de 3 caractères";
@@ -202,7 +209,7 @@ function validateCity() {
 
     let cityFormValue = document.getElementById( 'ville' ).value;
     let cityFormError = document.getElementById( 'form-msgerror-city' );
-    const cityRegExp = /^[a-z]+$/;
+    const cityRegExp = /^[A-Za-z]+$/;
 
 
     if (!isGranted( cityFormValue, 3 )) {
@@ -228,7 +235,7 @@ function validateEmail() {
 
     let emailFormValue = document.getElementById( 'email' ).value;
     let emailFormError = document.getElementById( 'form-msgerror-email' );
-    const emailRegExp = /^[0-9a-z]+@[a-z]+\.[a-z]{2,}$/;
+    const emailRegExp = /^[0-9A-Za-z\.]+@[a-z]+\.[a-z]{2,}$/;
 
     if (!isGranted( emailFormValue, 6 )) {
         emailFormError.innerHTML = "* l'adresse email doit comporter plus de 6 caractères";

@@ -1,3 +1,19 @@
+const url_path = window.location.href;
+const url = new URL( url_path );
+const id = url.searchParams.get( "id" );
+
+const getTeddy = async function () {
+    let response = await fetch( 'http://localhost:3000/api/teddies/' + id )
+    if (response.ok) {
+        let data = await response.json();
+        teddyProd( data );
+        storageProd();
+    } else {
+        console.error( 'Retour du serveur : ', response.status )
+    }
+}
+getTeddy();
+
 function teddyProd(teddy) {
     let card = `<section class="block-card">
                     <img class="img-teddy" src="${teddy.imageUrl}" alt="teddy">
@@ -24,23 +40,6 @@ function teddyProd(teddy) {
 
     optionsSelector.innerHTML = options;
 }
-
-const url_path = window.location.href;
-const url = new URL( url_path );
-const id = url.searchParams.get( "id" );
-
-const getTeddy = async function () {
-
-    let response = await fetch( 'http://localhost:3000/api/teddies/' + id )
-    if (response.ok) {
-        let data = await response.json();
-        teddyProd( data );
-        storageProd();
-    } else {
-        console.error( 'Retour du serveur : ', response.status )
-    }
-}
-getTeddy();
 
 function storageProd() {
     let btn = document.getElementById( "btnStorage" );
